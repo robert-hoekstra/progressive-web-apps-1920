@@ -19,25 +19,38 @@ let query = 'geschiedenis';
 // query = query.substring(1)
 const key = '76f45dfa187d66be5fd6af05573eab04';
 const secret = '2cb15758acac08d6ebe6f5ac7a293d69';
-const detail = 'Default';
+const detail = 'Basic';
 const refine = 'false'
 const facet = 'language(dut)'
-const url = `${endpoint}${query}&authorization=${key}&detaillevel=${detail}&output=json&p=jeugd&refine=${refine}&facet=${facet}`;
+const url = `${endpoint}${query}&authorization=${key}&detaillevel=${detail}&${facet}&output=JSON`;
 
 const config = {
   Authorization: `Bearer ${secret}`
 };
 
   const fetch = require('node-fetch');
-  fetch(url, config)
-  .then(res => res.text())
-  .then(json => console.log(json));
+  fetch(url).then(data => data.text()).then(data => {
+    console.log(JSON.parse(data.trim()))
+  })
 });
 
 router.get('/onderwerp-kiezen', function(req, res, next) {
 
-  res.render('layouts/onderwerp', { title: req.params.title }
+
+  res.render('layouts/onderwerp', { title: req.params.title, subjects:[
+    "Geschiedenis",
+    "Dieren",
+    "Landen en Steden",
+    "Sport en Hobby",
+    "Natuur",
+    "Bekende Personen",
+    "Mens & Gezondheid",
+    "Beroepen"
+  ]},
+
+  
   );
+
   console.log("zoeken!")
 });
 
