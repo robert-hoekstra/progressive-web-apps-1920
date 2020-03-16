@@ -12,11 +12,13 @@ router.get('/mijnwerkstukken', function(req, res, next) {
   next()
 
 
-}, function (req, res, next) {
+},
+
+function (req, res, next) {
 
 const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
 let query = 'geschiedenis';
-// query = query.substring(1)
+//  query = query.substring(1)
 const key = '76f45dfa187d66be5fd6af05573eab04';
 const secret = '2cb15758acac08d6ebe6f5ac7a293d69';
 const detail = 'Basic';
@@ -29,7 +31,7 @@ const config = {
 };
 
   const fetch = require('node-fetch');
-  fetch(url).then(data => data.text()).then(data => {
+  fetch(url, config).then(data => data.text()).then(data => {
     console.log(JSON.parse(data.trim()))
   })
 });
@@ -52,6 +54,42 @@ router.get('/onderwerp-kiezen', function(req, res, next) {
   );
 
   console.log("zoeken!")
+});
+
+router.get('/:param', function(req, res, next) {
+
+  console.log("param", req.params)
+  console.log("hallo")
+
+  const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
+let query = req.params;
+//  query = query.substring(1)
+const key = '76f45dfa187d66be5fd6af05573eab04';
+const secret = '2cb15758acac08d6ebe6f5ac7a293d69';
+const detail = 'Basic';
+const refine = 'false'
+const facet = 'language(dut)'
+const url = `${endpoint}${query}&authorization=${key}&detaillevel=${detail}&${facet}&output=JSON`;
+
+const config = {
+  Authorization: `Bearer ${secret}`
+};
+
+  const fetch = require('node-fetch');
+  fetch(url, config).then(data => data.text()).then(data => {
+    console.log(JSON.parse(data.trim()))
+  })
+
+
+
+
+  res.render('layouts/books', { title: req.params.title},
+
+
+  
+  );
+
+  console.log("render boeken")
 });
 
 /* GET detail page. */
