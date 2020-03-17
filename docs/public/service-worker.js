@@ -1,7 +1,7 @@
 const cacheName = 'cache-v1';
 const precacheResources = [
   '/',
-  'public/stylesheets/main.css',
+  '/stylesheets/main.css',
 ];
 
 self.addEventListener('install', event => {
