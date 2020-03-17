@@ -5,7 +5,7 @@
           <div>
             
             <img class="avatar" src="./images/boekje/happy.png" alt="Booky">
-            <blockquote>"Wat een onderwerpen zeg!"</blockquote>
+            <blockquote>"Wat een boeken zeg!"</blockquote>
  
           </div>
 <p>
@@ -15,10 +15,13 @@
 
       <main class="grid">
 
-      {{#each subjects}}
-       <a href=/{{this}}>
-        <article id="{{this}}">
-        <h2>{{this}}</h2>
+      {{#each data}}
+       <a href={{this.detailLink}} target="blank">
+        <article id="{{this.id}}">
+        <h2>{{this.titles.[0]}}</h2>
+                <img src="{{this.coverimages.[1]}}" alt="{{this.coverimages.[0]}}">
+                <p>{{this.summaries.[0]}}</p>
+
         </article></a>
       {{/each}}
      </main>
