@@ -338,4 +338,11 @@ article{
     background-repeat: no-repeat;
 }
 
+.banner {
+    align-content: center;
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+
 

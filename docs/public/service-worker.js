@@ -2,6 +2,7 @@ const cacheName = 'cache-v1';
 const precacheResources = [
   '/',
   '/stylesheets/main.css',
+  'offline.html',
 ];
 
 self.addEventListener('install', event => {
