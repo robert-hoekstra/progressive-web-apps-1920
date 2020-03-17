@@ -19,7 +19,20 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-  <script type="module" src="javascripts/app.js"></script>
+
+      <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => {
+        console.log('Service worker registered! 😎', reg);
+      })
+      .catch(err => {
+        console.log('😥 Service worker registration failed: ', err);
+      });
+  });
+}
+</script>
 
 </body>
 
