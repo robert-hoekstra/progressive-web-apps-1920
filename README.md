@@ -1,55 +1,34 @@
-# Progressive Web Apps @cmda-minor-web · 2019-2020
+# Progressive Webapps
+//Robuuste, toegankelijke websites ontwerpen en maken …
 
-In this course we will convert the client side web application previously made at the OBA into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+## Feedback punten
+3 punten waar ik graag feedback over zou willen hebben:
+* Manifest
+* npm build, watch, run. What? Wat valt er precies onder tooling?
+* Wat moet de service worker precies doen? Ik cache nu gewoon pagina's en css...
 
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
+## Booky de OBA mascotte!
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vSc48v1nrjcwH0llcTd68xyK7f2fDC2UL4d6h4ZNW3DU8ucez6ZOHiId1XSX0RP5ByvLC8p5pVUGZT4/pubhtml)
+Een applicatie om informatie te verzamelen voor jouw werkstuk!
 
-## Program
+### Case
+De gebruiker leert het OBA kennen door te navigeren door de OBA applicatie. De mascotte Booky helpt je op weg met verschillende elementen die komen kijken bij het maken van een werkstuk.
 
-### Week 1 - Server Side Rendering 📡
+De leerling leert zo de basisprincipes van een werkstuk maar ook de functie van een bibliotheek en toegankelijkheid die het met zich meebrengt voor de leerling.
 
-Goal: Render web pages server side
+### Live on Heroku
+The applicatie staat live op heroku en wordt gedeployed vanuit deze repo: [https://github.com/robert-hoekstra/pwa](https://github.com/robert-hoekstra/pwa)
+De applicatie kan gestart worden door op de link te klikken bovenaan de repo!
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-1.md)  
-[Slides](...)  
-[The Web landscape](...)  
+### Lokaal op eigen machine
+Zorg ervoor dat npm en node geinstalleerd is op jouw device!
 
+* clone repo
+* cd docs
+* npm install
+* npm run
+* navigeer naar localhost:3000 in de browser
 
-### Week 2 - Progressive Web App 🚀
-
-Goals: Convert application to a Progressive Web App
-
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-2.md)  
-[Slides](...)
-
-
-### Week 2 - Critical Rendering Path 📉 
-
-Doel: Optimize the Critical Rendering Path   
-[Opdrachten](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/week-3.md)  
-[Slides](...)
-
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+### Node & NPM Installeren
+[node](https://nodejs.org/en/)
+[npm](https://docs.npmjs.com/cli/install)
