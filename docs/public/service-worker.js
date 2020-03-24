@@ -1,8 +1,17 @@
-const cacheName = 'cache-v1';
+//Used Google Dev Documentations about service workers
+
+const cacheName = 'cache-v2';
 const precacheResources = [
   '/',
-  '/stylesheets/main.css',
-  'offline.html',
+  '/stylesheet/main.css',
+  '/javascript',
+  '/images/boekje/happy.png',
+  '/mijnwerkstukken',
+  '/hoemaakikeenwerkstuk',
+  '/instellingen',
+  '/mijninstellingen',
+  '/onderwerp-kiezen',
+  'offline.html'
 ];
 
 self.addEventListener('install', event => {
