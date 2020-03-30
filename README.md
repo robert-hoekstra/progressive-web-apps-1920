@@ -69,12 +69,22 @@ Gulp Css Clean is een tool die hetzelfde doet als uglify maar dan voor CSS. Je k
 
 Ook dit heeft als voordeel dat de compressie dusdanig het bestand verkleint dat de laadtijden kleiner zijn dan normaal.
 
+### Audit
+De audit is hier te vinen [Lighthouse Audit]()
+Om te kijken om de applicatie te optimaliseren heb ik gekeken naar verschillende oplossingen. Waaronder:
 
-### Statistiek
+* Een Manifest.JSON
+* Een Service Worker
+* Instelling van de taal in htlm (lang=nl)
+* Kleiner maken van JavaScript
+* Kleiner maken van CSS
+* Optimaliseren/comprimeren van afbeeldingen
 
-#### Voor optimalisatie
+Wat nog had gekund om nog een hogere score te behalen:
+* HTTP/2 instellen voor meerdere requests over 1 lijn. Http/1 zit namelijk vast op 6 requests als maximum
+* Een robot.txt file aanmaken om de applicatie beter te laten indexeren.
 
-#### Na optimalisatie
+* Viewport beter maken voor het apparaat waat het op geserveerd wordt. 
 
 
 ### Live on Heroku
