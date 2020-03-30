@@ -1,16 +1,29 @@
 # Progressive Webapps
-//Robuuste, toegankelijke websites ontwerpen en maken …
-
-## Feedback punten
-3 punten waar ik graag feedback over zou willen hebben:
-* Manifest
-* npm build, watch, run. What? Wat valt er precies onder tooling?
-* Wat moet de service worker precies doen? Ik cache nu gewoon pagina's en css...
 
 ## Booky de OBA mascotte!
 Een applicatie om informatie te verzamelen voor jouw werkstuk!
+[![Image from Gyazo](https://i.gyazo.com/14e4847d5d6dc835be68141553e6947e.png)](https://gyazo.com/14e4847d5d6dc835be68141553e6947e)
 
 ## Inhoudsopgave
+- [Progressive Webapps](#progressive-webapps)
+  * [Booky de OBA mascotte!](#booky-de-oba-mascotte-)
+  * [Inhoudsopgave](#inhoudsopgave)
+    + [Case](#case)
+    + [Job Stories](#job-stories)
+    + [Service Worker](#service-worker)
+    + [Manifest.JSON](#manifestjson)
+    + [Tooling](#tooling)
+      - [Gulp](#gulp)
+        * [Gulp Uglify](#gulp-uglify)
+        * [Gulp ImageMin](#gulp-imagemin)
+        * [Gulp Concat](#gulp-concat)
+        * [Gulp Clean - CSS Clean](#gulp-clean---css-clean)
+      - [Express Compression](#express-compression)
+    + [Audit](#audit)
+      - [Wat is HTTP/2?](#wat-is-http-2-)
+    + [Live on Heroku](#live-on-heroku)
+    + [Lokaal op eigen machine](#lokaal-op-eigen-machine)
+    + [Node & NPM Installeren](#node---npm-installeren)
 
 ### Case
 De gebruiker leert het OBA kennen door te navigeren door de OBA applicatie. De mascotte Booky helpt je op weg met verschillende elementen die komen kijken bij het maken van een werkstuk.
@@ -28,6 +41,8 @@ Bovenstaande is het format voor een job story. Voor mijn user case heb ik een aa
 
 ### Service Worker
 De service worker is een javascript tool die zichzelf installeert op het moment dat de gebruiker op de website komt met een actieve internet verbinding. Het voordeel van het gebruik van een service worker in deze applicatie is dat de applicatie ook gebruikt kan worden als de verbinding wegvalt. Door middel van de service worker kun je instellen welke pagina's en bestanden in de cache moeten komen. Je kunt met de service worker zelfs een 'applike' ervaring creeren in combinatie met een manifest.json. Door deze combinatie is het mogelijk om de applicatie te installeren als een progressive web app!
+
+Een serviceworker heeft wel een paar eisen waar het aan moet voldoen wilt de SW geinstalleerd kunnen worden. Zo moet de applicatie geserveerd worden over een HTTPS verbinding. Een SSL certificaat is dus nodig. Met uizondering van de localhost.
 
 ### Manifest.JSON
 Het Manifest.json is een bestand die verteld aan de browser hoe de progressive web app heet, welke versie het is en hoe de app eruit moet gaan zien als deze is geinstalleerd op het device van de gebruiker.
@@ -51,6 +66,7 @@ Om de developer omgeving fijner te maken. Maar ook om de content op een zo effic
 Tooling is een fijne manier om processen te automatiseren met NPM pakketjes die je kan aansturen in je package.json.
 
 #### Gulp
+[![Image from Gyazo](https://i.gyazo.com/020bd63fc855af09890fdd34421e5557.png)](https://gyazo.com/020bd63fc855af09890fdd34421e5557)
 Gulp is een toolkit om het build proces voor je automatiseren. Zo heb ik Gulp voor het eerst gebruikt in dit project en het bevat mij super goed! Gulp helpt mij door automatisch bestanden te optimaliseren en ze te schrijven in een aangwezen folder. In mijn geval de dist folder.
 
 Gulp werkt door een gulpfile.js te maken. Hierin kun je gulp tasks definieren. In deze tasks definieer je een functie. Vaak bestaat deze functie uit een gulp.src dus een locatie waar de bestanden vandaan gehaald moeten worden. Dan een gulp.pipe, een functie die de data meeneemt en door een subfunctie stuurt zoals uglify, imagemin of concat. En vervolgens wordt het nieuwe bestand geschreven naar een locatie welke gedefinieerd wordt door gulp.dest.
@@ -69,8 +85,12 @@ Gulp Css Clean is een tool die hetzelfde doet als uglify maar dan voor CSS. Je k
 
 Ook dit heeft als voordeel dat de compressie dusdanig het bestand verkleint dat de laadtijden kleiner zijn dan normaal.
 
+#### Express Compression
+Express compression is een package die de volledige Express applicatie (images, templating, scrips etc) comprimeerd naar een kleinere bestandsgrootte om geserveerd te worden naar de gebruiker.
+Kleinere bestanden == kortere laadtijden.
+
 ### Audit
-De audit is hier te vinen [Lighthouse Audit]()
+De audit is hier te vinden [Lighthouse Audit](https://github.com/robert-hoekstra/progressive-web-apps-1920/blob/master/docs/LightHouse.pdf)
 Om te kijken om de applicatie te optimaliseren heb ik gekeken naar verschillende oplossingen. Waaronder:
 
 * Een Manifest.JSON
@@ -79,10 +99,22 @@ Om te kijken om de applicatie te optimaliseren heb ik gekeken naar verschillende
 * Kleiner maken van JavaScript
 * Kleiner maken van CSS
 * Optimaliseren/comprimeren van afbeeldingen
+* Werken met responsive waardes
+* Werken met de juiste tags in zowel de Head als de Body
+* Scripts in de tail inladen of met defer
+* JavaScript server side laten renderen voor performance en voor ondersteuningissues.
 
 Wat nog had gekund om nog een hogere score te behalen:
 * HTTP/2 instellen voor meerdere requests over 1 lijn. Http/1 zit namelijk vast op 6 requests als maximum
+
+#### Wat is HTTP/2?
+Http2 is een nieuw protocol dat door de meeste nieuwe browsers wordt ondersteund. Het is een technisch verhaal. Maar het komt er op neer dat HTTP/2 meer requests over de lijn kan sturen dan een HTTP/1.1 protocol kan. In essentie is het dus mogelijk om met HTTP/2 veel meer verbindingen gelijkmatig tot stand te laten komen.
+
+
 * Een robot.txt file aanmaken om de applicatie beter te laten indexeren.
+
+Een robot.txt file is een bestand die de crawler van Google helpt de website te indexeren.
+In een robot.txt geef je aan welke locaties wel of niet geindixeerd mogen worden. In combinatie met een XML sitemap kan Google jouw website indexeren.
 
 * Viewport beter maken voor het apparaat waat het op geserveerd wordt. 
 
@@ -98,7 +130,7 @@ Zorg ervoor dat npm en node geinstalleerd is op jouw device!
 * cd docs
 * npm install
 * npm run
-* navigeer naar localhost:3000 in de browser
+* navigeer naar localhost:3500 in de browser
 
 ### Node & NPM Installeren
 [node](https://nodejs.org/en/)
