@@ -107,6 +107,19 @@ Om te kijken om de applicatie te optimaliseren heb ik gekeken naar verschillende
 Wat nog had gekund om nog een hogere score te behalen:
 * HTTP/2 instellen voor meerdere requests over 1 lijn. Http/1 zit namelijk vast op 6 requests als maximum
 
+#### Critical Render Path
+De Critical Render path is de weg die de browser 'aflegt' vanaf de request naar de server tot het volledig serveren van de applicatie.
+
+Om CRP te optimaliseren moet je begrijpen hoe het CRP werkt.
+
+Het CRP kent een bepaalt aantal kenmerken zoals:
+* HTML wordt als eerste ingeladen van top to bottom
+* Alles resources die in de HTML worden aangevraagd zorgen er op dat moment voor dat de html stopt met laden tot de resource binnen is.
+* Scripts kunnen het beste in de tail van het document worden opgenomen. Of met een async / defer om aan te geven dat het bestand niet synschroon geladen hoeft te worden voor de rendertree.
+
+Je kunt het CRP optimaliseren om je bestanden dus in de juiste volgorde en semantiek te plaatsen.
+Daarnaast kun je het CRP optimaliseren door je bestanden zo klein mogelijk te maken. Codeer dus DRY en gebruik de meest efficiente algoritmes. Wanneer je dat hebt gedaan kun je alle code samenvoegen en kleiner maken.
+
 #### Wat is HTTP/2?
 Http2 is een nieuw protocol dat door de meeste nieuwe browsers wordt ondersteund. Het is een technisch verhaal. Maar het komt er op neer dat HTTP/2 meer requests over de lijn kan sturen dan een HTTP/1.1 protocol kan. In essentie is het dus mogelijk om met HTTP/2 veel meer verbindingen gelijkmatig tot stand te laten komen.
 
@@ -116,8 +129,20 @@ Http2 is een nieuw protocol dat door de meeste nieuwe browsers wordt ondersteund
 Een robot.txt file is een bestand die de crawler van Google helpt de website te indexeren.
 In een robot.txt geef je aan welke locaties wel of niet geindixeerd mogen worden. In combinatie met een XML sitemap kan Google jouw website indexeren.
 
-* Viewport beter maken voor het apparaat waat het op geserveerd wordt. 
+* Viewport beter maken voor het apparaat waar het op geserveerd wordt. 
 
+De viewport wordt nu nog door het grid en de header uit zn maximum getrokken omdat deze niet is geoptimaliseerd voor hele kleine schermen.
+
+### Client-Side vs Server-Side
+Tijdens het vak heb ik geleerd om een volledige client side applicatie om te bouwen tot een server side applicatie. De applicatie is gemaakt in een nodejs omgeving met als framework Express 4.xx.
+
+Het voordeel van SS tegen CS is dat je de volledige controle hebt over de applicatie. Je wilt in principe de controle op de server houden en de gebruiker alleen maar statische pagina's serveren. Statische pagina's die dynamisch reageren op de input van de gebruiker.
+
+In mijn situatie heb ik er voor gekozen dat de gebruiker alleen maar JavaScript nodig heeft voor progressive enhanced onderdelen van de applicatie. Het opvragen, ophalen en presenteren van data gebeurt allemaal op de server. En dat is gaaf! Want dat betekend dat jouw gebruiker niet een apparaat nodig heeft dat JavaScript ondersteunt. Dat doet de server namelijk al voor je.
+
+Als de gebruiker wel beschikt over client side JS dan hoort de gebruiker uitspraken van booky. En kan de gebruiker de font-size van de applicatie aanpassen.
+
+Als de gebruiker zijn verbinding met het internet dreigt te verliezen krijgt hij daar een melding van binnen de applicatie en schakelt de applicatie over naar een offline ervaring via de service worker.
 
 ### Live on Heroku
 The applicatie staat live op heroku en wordt gedeployed vanuit deze repo: [https://github.com/robert-hoekstra/pwa](https://github.com/robert-hoekstra/pwa)
