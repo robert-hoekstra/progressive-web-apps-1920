@@ -128,6 +128,14 @@ Daarnaast kun je het CRP optimaliseren door je bestanden zo klein mogelijk te ma
 Daarnaast is het belangerijk om zoveel mogelijk te prechachen en afstanden alvast te definieren. In de applicatie gebeurd dit door een grid te definieren waarin de elementen worden geparsed. Dat zorgt er voor dat tijdens de 'painting' de applicatie niet abrupt uitelkaar schiet doordat er nog afbeeldingen ergens vandaan komen.
 Wanneer de server klaar is met het renderen van de pagina dan wordt deze naar de browser gestuurd. De browser heeft zoveel mogelijk data al gecached door het precachen.
 
+##### CRP Jargon
+* First View - Wat de gebruiker ziet wanneer hij voor het eerst naar een applicatie of website komt.
+* Repeat View - Wat de gebruiker ziet wanneer hij voor een tweede keer naar een applicatie of website komt waar hij al geweest is.
+* Perceived Performance - Hoe snel een gebruiker ervaart of denkt dat jouw applicatie is. Dit staat dus los van de achterliggende 'Runtime performance'
+* Runtime Performance - Hoe snel en consistent de applicatie draait wanneer de applicatie 'geladen' is.
+* Time to interaction - Hoe lang het duurt voordat de client daadwerkelijk een interactie kan starten met de client.
+* Time to first byte - Hoe lang het duurt voordat de eerste 'byte' over de lijn gaat. We hebben het dan over een request tussen client en server.
+
 #### Wat is HTTP/2?
 Http2 is een nieuw protocol dat door de meeste nieuwe browsers wordt ondersteund. Het is een technisch verhaal. Maar het komt er op neer dat HTTP/2 meer requests over de lijn kan sturen dan een HTTP/1.1 protocol kan. In essentie is het dus mogelijk om met HTTP/2 veel meer verbindingen gelijkmatig tot stand te laten komen.
 
