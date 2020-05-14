@@ -107,6 +107,11 @@ Om te kijken om de applicatie te optimaliseren heb ik gekeken naar verschillende
 Wat nog had gekund om nog een hogere score te behalen:
 * HTTP/2 instellen voor meerdere requests over 1 lijn. Http/1 zit namelijk vast op 6 requests als maximum
 
+
+### Second Audit
+De audit is hier te vinden [Lighthouse Audit 2](https://github.com/robert-hoekstra/progressive-web-apps-1920/blob/master/docs/LightHouse2.pdf)
+
+
 #### Critical Render Path
 De Critical Render path is de weg die de browser 'aflegt' vanaf de request naar de server tot het volledig serveren van de applicatie.
 
@@ -119,6 +124,9 @@ Het CRP kent een bepaalt aantal kenmerken zoals:
 
 Je kunt het CRP optimaliseren om je bestanden dus in de juiste volgorde en semantiek te plaatsen.
 Daarnaast kun je het CRP optimaliseren door je bestanden zo klein mogelijk te maken. Codeer dus DRY en gebruik de meest efficiente algoritmes. Wanneer je dat hebt gedaan kun je alle code samenvoegen en kleiner maken.
+
+Daarnaast is het belangerijk om zoveel mogelijk te prechachen en afstanden alvast te definieren. In de applicatie gebeurd dit door een grid te definieren waarin de elementen worden geparsed. Dat zorgt er voor dat tijdens de 'painting' de applicatie niet abrupt uitelkaar schiet doordat er nog afbeeldingen ergens vandaan komen.
+Wanneer de server klaar is met het renderen van de pagina dan wordt deze naar de browser gestuurd. De browser heeft zoveel mogelijk data al gecached door het precachen.
 
 #### Wat is HTTP/2?
 Http2 is een nieuw protocol dat door de meeste nieuwe browsers wordt ondersteund. Het is een technisch verhaal. Maar het komt er op neer dat HTTP/2 meer requests over de lijn kan sturen dan een HTTP/1.1 protocol kan. In essentie is het dus mogelijk om met HTTP/2 veel meer verbindingen gelijkmatig tot stand te laten komen.
@@ -160,3 +168,16 @@ Zorg ervoor dat npm en node geinstalleerd is op jouw device!
 ### Node & NPM Installeren
 [node](https://nodejs.org/en/)
 [npm](https://docs.npmjs.com/cli/install)
+
+
+
+### Changes as of may
+* Added sw-precache to Gulp
+* Service worker is now being created through gulp
+* New filetypes precached: html, js, css, jpg, png, ,gif,json
+* Add Defer to script. Moved script to head
+* Redeployed to Heroku
+* removed folders from cache
+* Add Async to gulp parallel tasks
+* Removed SpeechJS (not allowed anymore)
+* Add new lighthouse audit
